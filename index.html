@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéCast: Weather Pokédex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="pokedex-container">
+        <!-- Left Hinge -->
+        <div class="pokedex-left">
+            <div class="hinge-top"></div>
+            <div class="hinge-bottom"></div>
+            
+            <!-- The Main Screen -->
+            <div class="screen-container">
+                <div class="screen-header">
+                    <span class="red-light blink"></span>
+                    <span class="red-light"></span>
+                </div>
+                <div class="screen-content" id="weather-display">
+                    <!-- Default state -->
+                    <div class="intro-screen">
+                        <div class="pokeball-icon">🔴</div>
+                        <p>Enter a city to scan for weather data!</p>
+                    </div>
+                </div>
+                <div class="screen-footer">
+                    <div class="speaker-grill">
+                        <div></div><div></div><div></div><div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Input & Button -->
+            <div class="search-bar">
+                <input type="text" id="city-input" placeholder="Enter City Name..." autocomplete="off">
+                <button id="search-btn">Scan</button>
+            </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="pokedex-right">
+            <div class="data-pads">
+                <div class="pad"></div>
+                <div class="pad"></div>
+                <div class="pad"></div>
+            </div>
+             <div class="cross-pad">
+                <div class="cross-h"></div>
+                <div class="cross-v"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
