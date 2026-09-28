@@ -341,3 +341,28 @@ button#search-btn:active {
         display: none;
     }
 }
+/* --- STYLISH ANIME CHARACTER CARD DESIGN --- */
+.anime-character-card {
+    background: rgba(0, 0, 0, 0.08);
+    border: 2px dashed #333;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    margin: 5px 0;
+}
+.anime-avatar-box {
+    font-size: 32px;
+    background: #fff;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 2px solid #222;
+    box-shadow: 3px 3px 0px #222;
+    margin-bottom: 4px;
+}
+.anime-name-tag {
+    font-size: 10px;
+    font-weight: bold;
+    color: #111;
+    text-transform: uppercase;
+}
