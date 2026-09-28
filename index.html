@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokéCast: Weather Pokédex</title>
+    <title>PokéCast: Multi-Verse Weatherdex</title>
     
     <!-- PWA & Mobile Optimization -->
     <meta name="theme-color" content="#DC0A2D">
@@ -12,53 +12,20 @@
     <link rel="apple-touch-icon" href="logo.png">
     <link rel="icon" href="logo.png" type="image/png">
 
-    <!-- Dynamic PWA Manifest Generator -->
-    <script>
-        const manifestData = {
-            "name": "PokéCast: Weather Pokédex",
-            "short_name": "PokéCast",
-            "start_url": "./index.html",
-            "display": "standalone",
-            "background_color": "#DC0A2D",
-            "theme_color": "#DC0A2D",
-            "icons": [
-                {
-                    "src": "logo.png",
-                    "sizes": "192x192",
-                    "type": "image/png"
-                },
-                {
-                    "src": "logo.png",
-                    "sizes": "512x512",
-                    "type": "image/png"
-                }
-            ]
-        };
-        const blob = new Blob([JSON.stringify(manifestData)], {type: 'application/json'});
-        const link = document.createElement('link');
-        link.rel = 'manifest';
-        link.href = URL.createObjectURL(blob);
-        document.head.appendChild(link);
-    </script>
-
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Compact Non-Intrusive Footer Styles */
-        .app-footer {
-            text-align: center;
-            margin-top: 15px;
-            color: #71717a;
-            font-size: 0.75rem;
-            line-height: 1.4;
-            width: 100%;
-            max-width: 600px;
-        }
-        .app-footer strong {
-            color: #a1a1aa;
-        }
-    </style>
 </head>
-<body>
+<body class="theme-pokemon"> <!-- Default Theme -->
+
+    <!-- Theme Selector Dropdown Bar -->
+    <div class="theme-selector-bar">
+        <label for="theme-select">UNIVERSE:</label>
+        <select id="theme-select">
+            <option value="pokemon">🔴 PokéCast (Pokémon)</option>
+            <option value="dbz">🟠 Saiyan Cast (DBZ)</option>
+            <option value="naruto">🍥 Hidden Leaf (Naruto)</option>
+            <option value="doraemon">🔔 Future Gadget (Doraemon)</option>
+        </select>
+    </div>
 
     <div class="pokedex-container">
         <!-- Left Hinge -->
@@ -66,8 +33,9 @@
             <div class="hinge-top"></div>
             <div class="hinge-bottom"></div>
             
-            <!-- The Main Screen -->
+            <!-- The Main Screen with CRT Scanlines Overlay -->
             <div class="screen-container">
+                <div class="crt-overlay"></div>
                 <div class="screen-header">
                     <span class="red-light blink"></span>
                     <span class="red-light"></span>
@@ -76,7 +44,7 @@
                     <!-- Default state -->
                     <div class="intro-screen">
                         <div class="pokeball-icon">🔴</div>
-                        <p>Enter a city to scan for weather data!</p>
+                        <p>Enter a city to scan multi-verse weather data!</p>
                     </div>
                 </div>
                 <div class="screen-footer">
@@ -107,28 +75,12 @@
         </div>
     </div>
 
-    <!-- Clean, Non-Intrusive Footer Placed Below Pokedex -->
+    <!-- Clean Non-Intrusive Footer -->
     <footer class="app-footer">
-        <p>Built for Pokémon trainers & weather explorers by <strong>Ansh Raghav</strong> (Moradabad)</p>
+        <p>Built for multi-verse explorers by <strong>Ansh Raghav</strong> (Moradabad)</p>
         <p style="margin-top: 2px;">&copy; 2026 Mohitansh. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        // --- SAFE SERVICE WORKER REGISTRATION ---
-        if ('serviceWorker' in navigator) {
-            const swCode = `
-                self.addEventListener('install', (e) => { self.skipWaiting(); });
-                self.addEventListener('activate', (e) => { e.waitUntil(clients.claim()); });
-                self.addEventListener('fetch', (e) => {
-                    e.respondWith(
-                        fetch(e.request).catch(() => caches.match(e.request))
-                    );
-                });
-            `;
-            const blob = new Blob([swCode], { type: 'text/javascript' });
-            navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
-        }
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
