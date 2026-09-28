@@ -28,9 +28,10 @@ function playRetroSound(theme) {
     } catch (e) {}
 }
 
-// --- COMPLETE CHARACTER & ARTWORK DATABASE ---
+// --- COMPLETE CHARACTER DATABASE WITH PROXY BYPASS FOR IMAGES ---
 const characterDatabase = {
     pokemon: {
+        // PokeAPI works fine natively
         sunny: { name: "Charizard", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png", fallback: "🐲", title: "KANTO FIRE DRAGON", desc: "A wild Charizard soaks up the sun!" },
         rainy: { name: "Squirtle", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png", fallback: "🐢", title: "WATER POKÉMON", desc: "A wild Squirtle enjoys the heavy rain!" },
         thunder: { name: "Pikachu", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", fallback: "⚡", title: "ELECTRIC MOUSE", desc: "Pikachu charges up in the thunderstorm!" },
@@ -38,25 +39,26 @@ const characterDatabase = {
         default: { name: "Pikachu", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", fallback: "🔴", title: "POKÉ-DEX SCANNER", desc: "Scanning weather conditions..." }
     },
     dbz: {
-        sunny: { name: "Super Saiyan Goku", img: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "💥", title: "SAIYAN WARRIOR", desc: "Power level rising under blazing sun!" },
-        rainy: { name: "Blue Aura Goku", img: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🌊", title: "SUPER SAIYAN BLUE", desc: "Training intensely through the downpour!" },
-        thunder: { name: "Majin Vegeta", img: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "⚡", title: "PRINCE OF SAIYANS", desc: "Lightning strikes across the battlefield!" },
-        snowy: { name: "Gohan (Winter)", img: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🏔️", title: "HALF-SAIYAN KEEPER", desc: "Meditating calmly in freezing winds!" },
-        default: { name: "Goku", img: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🥋", title: "EARTH'S DEFENDER", desc: "Ready for battle!" }
+        // Using wsrv.nl proxy to bypass Wikipedia block
+        sunny: { name: "Super Saiyan Goku", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "💥", title: "SAIYAN WARRIOR", desc: "Power level rising under blazing sun!" },
+        rainy: { name: "Blue Aura Goku", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🌊", title: "SUPER SAIYAN BLUE", desc: "Training intensely through the downpour!" },
+        thunder: { name: "Majin Vegeta", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "⚡", title: "PRINCE OF SAIYANS", desc: "Lightning strikes across the battlefield!" },
+        snowy: { name: "Gohan (Winter)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🏔️", title: "HALF-SAIYAN KEEPER", desc: "Meditating calmly in freezing winds!" },
+        default: { name: "Goku", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🥋", title: "EARTH'S DEFENDER", desc: "Ready for battle!" }
     },
     naruto: {
-        sunny: { name: "Naruto (Sage Mode)", img: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "☀️", title: "HOKAGE SAGE", desc: "Gathering natural energy in the sun!" },
-        rainy: { name: "Kakashi Hatake", img: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "🌧️", title: "COPY NINJA", desc: "Mission underway in the misty rain." },
-        thunder: { name: "Sasuke Uchiha", img: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "⚡", title: "AVENGING SHINOBI", desc: "Channeling lightning for Kirin!" },
-        snowy: { name: "Haku", img: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "❄️", title: "ICE MIRROR MASTER", desc: "Ice mirrors freezing the snowfall." },
-        default: { name: "Naruto Uzumaki", img: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "🍥", title: "HIDDEN LEAF HERO", desc: "Dattebayo!" }
+        sunny: { name: "Naruto (Sage Mode)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "☀️", title: "HOKAGE SAGE", desc: "Gathering natural energy in the sun!" },
+        rainy: { name: "Kakashi Hatake", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "🌧️", title: "COPY NINJA", desc: "Mission underway in the misty rain." },
+        thunder: { name: "Sasuke Uchiha", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "⚡", title: "AVENGING SHINOBI", desc: "Channeling lightning for Kirin!" },
+        snowy: { name: "Haku", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "❄️", title: "ICE MIRROR MASTER", desc: "Ice mirrors freezing the snowfall." },
+        default: { name: "Naruto Uzumaki", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "🍥", title: "HIDDEN LEAF HERO", desc: "Dattebayo!" }
     },
     doraemon: {
-        sunny: { name: "Doraemon (Take-copter)", img: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🚁", title: "FUTURE CAT ROBOT", desc: "Flying high with the Take-copter!" },
-        rainy: { name: "Doraemon (Umbrella)", img: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "☂️", title: "SECRET GADGET USER", desc: "Holding a futuristic rain umbrella!" },
-        thunder: { name: "Nobita & Gadgets", img: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🌩️", title: "NOBITA'S ROOM", desc: "Hiding from the thunderstorm!" },
-        snowy: { name: "Doraemon (Anywhere Door)", img: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🚪", title: "ANYWHERE DOOR", desc: "Stepping through snow into winter!" },
-        default: { name: "Doraemon", img: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🔔", title: "FUTURE GADGETRY", desc: "Have a secret gadget ready!" }
+        sunny: { name: "Doraemon (Take-copter)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🚁", title: "FUTURE CAT ROBOT", desc: "Flying high with the Take-copter!" },
+        rainy: { name: "Doraemon (Umbrella)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "☂️", title: "SECRET GADGET USER", desc: "Holding a futuristic rain umbrella!" },
+        thunder: { name: "Nobita & Gadgets", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🌩️", title: "NOBITA'S ROOM", desc: "Hiding from the thunderstorm!" },
+        snowy: { name: "Doraemon (Anywhere Door)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🚪", title: "ANYWHERE DOOR", desc: "Stepping through snow into winter!" },
+        default: { name: "Doraemon", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🔔", title: "FUTURE GADGETRY", desc: "Have a secret gadget ready!" }
     }
 };
 
@@ -125,7 +127,7 @@ async function fetchWeather() {
                 
                 <div class="anime-character-card">
                     <div class="anime-avatar-box">
-                        <img src="${themeChar.img}" alt="${themeChar.name}" style="width: 45px; height: 45px; object-fit: contain; image-rendering: pixelated;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <img src="${themeChar.img}" alt="${themeChar.name}" style="width: 45px; height: 45px; object-fit: contain; image-rendering: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
                         <span style="display:none; font-size: 30px;">${themeChar.fallback}</span>
                     </div>
                     <div class="anime-name-tag">${themeChar.name}</div>
