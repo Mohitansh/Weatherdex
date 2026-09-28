@@ -1,4 +1,4 @@
-// --- 8-BIT AUDIO SYNTHESIZER (Theme-based Frequencies) ---
+// --- 8-BIT AUDIO SYNTHESIZER ---
 function playRetroSound(theme) {
     try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -8,30 +8,27 @@ function playRetroSound(theme) {
         osc.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
-        // Different sound pitch per universe theme
         if (theme === 'dbz') {
-            osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5 (Energetic)
+            osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // Saiyan tone
             osc.type = 'sawtooth';
         } else if (theme === 'naruto') {
-            osc.frequency.setValueAtTime(440, audioCtx.currentTime); // A4 (Shinobi beep)
+            osc.frequency.setValueAtTime(440, audioCtx.currentTime); // Shinobi beep
             osc.type = 'square';
         } else if (theme === 'doraemon') {
-            osc.frequency.setValueAtTime(659.25, audioCtx.currentTime); // E5 (Gadget chime)
+            osc.frequency.setValueAtTime(659.25, audioCtx.currentTime); // Gadget chime
             osc.type = 'sine';
         } else {
-            osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5 (Classic Poké)
+            osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // Classic Poké
             osc.type = 'square';
         }
 
         gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
         osc.start();
         osc.stop(audioCtx.currentTime + 0.15);
-    } catch (e) {
-        // AudioContext restricted before user interaction fallback
-    }
+    } catch (e) {}
 }
 
-// --- THEME-BASED CHARACTER MAPPING ---
+// --- ACCURATE THEME CHARACTER DATABASE (DBZ, Naruto, Doraemon & Pokemon) ---
 const characterDatabase = {
     pokemon: {
         sunny: { name: "Charizard", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png", desc: "A wild Charizard soaks up the sun!" },
@@ -41,25 +38,25 @@ const characterDatabase = {
         default: { name: "Pikachu", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Scanning weather conditions..." }
     },
     dbz: {
-        sunny: { name: "Super Saiyan Goku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Power level rising under blazing sun!" }, // Using clean sprite placeholders styled via theme
+        sunny: { name: "Super Saiyan Goku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png", desc: "Power level rising under blazing sun!" },
         rainy: { name: "Blue Aura Goku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png", desc: "Training intensely through the downpour!" },
         thunder: { name: "Majin Vegeta", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png", desc: "Lightning strikes across the battlefield!" },
         snowy: { name: "Gohan (Winter)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png", desc: "Meditating calmly in freezing winds!" },
-        default: { name: "Goku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Ready for battle!" }
+        default: { name: "Goku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png", desc: "Ready for battle!" }
     },
     naruto: {
         sunny: { name: "Naruto (Sage Mode)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png", desc: "Gathering natural energy in the sun!" },
         rainy: { name: "Kakashi (Anbu Rain)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png", desc: "Mission underway in the misty rain." },
         thunder: { name: "Sasuke (Kirin)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png", desc: "Channeling lightning for Kirin!" },
         snowy: { name: "Haku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png", desc: "Ice mirrors freezing the snowfall." },
-        default: { name: "Naruto", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Dattebayo!" }
+        default: { name: "Naruto", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png", desc: "Dattebayo!" }
     },
     doraemon: {
         sunny: { name: "Doraemon (Take-copter)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png", desc: "Flying high with the Take-copter!" },
         rainy: { name: "Doraemon (Umbrella)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png", desc: "Holding a futuristic rain umbrella!" },
         thunder: { name: "Nobita & Gadgets", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png", desc: "Hiding from the thunderstorm!" },
         snowy: { name: "Doraemon (Anywhere Door)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png", desc: "Stepping through snow into winter!" },
-        default: { name: "Doraemon", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Have a secret gadget ready!" }
+        default: { name: "Doraemon", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png", desc: "Have a secret gadget ready!" }
     }
 };
 
@@ -94,7 +91,6 @@ async function fetchWeather() {
     weatherDisplay.innerHTML = `<div class="intro-screen"><p>Scanning Multi-Verse...</p></div>`;
 
     try {
-        // Geocoding city
         const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1`);
         const geoData = await geoRes.json();
 
@@ -105,12 +101,10 @@ async function fetchWeather() {
 
         const { latitude, longitude, name, country } = geoData.results[0];
 
-        // Fetching Weather Data
         const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`);
         const weatherData = await weatherRes.json();
         const current = weatherData.current;
 
-        // Map weather code to category
         const code = current.weather_code;
         let conditionKey = 'default';
         let conditionText = 'Clear Skies';
@@ -122,7 +116,6 @@ async function fetchWeather() {
 
         const themeChar = characterDatabase[currentTheme][conditionKey] || characterDatabase[currentTheme].default;
 
-        // Render Result inside Retro Screen
         weatherDisplay.innerHTML = `
             <div class="weather-result">
                 <div class="weather-top">

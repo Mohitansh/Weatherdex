@@ -4,28 +4,32 @@
     --screen-bg: #9BBC0F;
     --screen-border: #333;
     --accent-btn: #FFCC00;
+    --btn-text: #111;
 }
 
-/* --- THEME PALETTES --- */
+/* --- THEME PALETTES & BUTTON CONTRAST --- */
 body.theme-pokemon {
     --shell-primary: #DC0A2D;
     --shell-dark: #A50822;
     --screen-bg: #9BBC0F;
     --accent-btn: #FFCC00;
+    --btn-text: #111;
 }
 
 body.theme-dbz {
     --shell-primary: #F37022; /* Saiyan Orange */
     --shell-dark: #B94406;
     --screen-bg: #4A90E2; /* Energy Blue */
-    --accent-btn: #FFD700;
+    --accent-btn: #002B49; /* Dark Blue for high contrast */
+    --btn-text: #FFD700;   /* Golden text */
 }
 
 body.theme-naruto {
     --shell-primary: #FF6600; /* Konoha Orange */
     --shell-dark: #C04400;
     --screen-bg: #85B951; /* Leaf Green */
-    --accent-btn: #111111;
+    --accent-btn: #111111; /* Black button */
+    --btn-text: #FF6600;   /* Orange text */
 }
 
 body.theme-doraemon {
@@ -33,6 +37,7 @@ body.theme-doraemon {
     --shell-dark: #005A8C;
     --screen-bg: #E0F7FA; /* Future Bright Screen */
     --accent-btn: #D32F2F; /* Red Collar Bell vibe */
+    --btn-text: #FFFFFF;   /* White text */
 }
 
 * {
@@ -214,12 +219,13 @@ input#city-input {
 button#search-btn {
     padding: 10px 18px;
     background-color: var(--accent-btn);
-    border: none;
+    color: var(--btn-text);
+    border: 2px solid #222;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.1s;
+    transition: transform 0.1s, background-color 0.3s, color 0.3s;
 }
 button#search-btn:active {
     transform: scale(0.95);
@@ -312,7 +318,7 @@ button#search-btn:active {
     font-size: 11px;
 }
 
-/* Mobile Responsive Fix (Footer never overlaps) */
+/* Mobile Responsive Fix */
 @media (max-width: 650px) {
     .pokedex-container {
         flex-direction: column;
@@ -331,6 +337,6 @@ button#search-btn:active {
         margin-bottom: 0;
     }
     .hinge-top, .hinge-bottom {
-        display: none;
+        data-display: none;
     }
 }
