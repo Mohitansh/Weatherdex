@@ -28,35 +28,35 @@ function playRetroSound(theme) {
     } catch (e) {}
 }
 
-// --- FOOLPROOF RETRO UNIVERSE & CHARACTER DATABASE ---
+// --- GUARANTEED EMOJI-BASED CHARACTER DATABASE ---
 const characterDatabase = {
     pokemon: {
-        sunny: { name: "Charizard", symbol: "🔥", badge: "KANTO FIRE", desc: "A wild Charizard soaks up the sun!" },
-        rainy: { name: "Squirtle", symbol: "💧", badge: "WATER TYPE", desc: "A wild Squirtle enjoys the heavy rain!" },
-        thunder: { name: "Pikachu", symbol: "⚡", badge: "ELECTRIC SHOCK", desc: "Pikachu charges up in the thunderstorm!" },
-        snowy: { name: "Alolan Vulpix", symbol: "❄️", badge: "ICE BLIZZARD", desc: "Alolan Vulpix frolics in the snow!" },
-        default: { name: "Pikachu", symbol: "🔴", badge: "POKÉ-DEX", desc: "Scanning weather conditions..." }
+        sunny: { name: "Charizard", avatar: "🐲", desc: "A wild Charizard soaks up the sun!" },
+        rainy: { name: "Squirtle", avatar: "🐢", desc: "A wild Squirtle enjoys the heavy rain!" },
+        thunder: { name: "Pikachu", avatar: "⚡", desc: "Pikachu charges up in the thunderstorm!" },
+        snowy: { name: "Alolan Vulpix", avatar: "🦊", desc: "Alolan Vulpix frolics in the snow!" },
+        default: { name: "Pikachu", avatar: "🔴", desc: "Scanning weather conditions..." }
     },
     dbz: {
-        sunny: { name: "Super Saiyan Goku", symbol: "🌟", badge: "SUPER SAIYAN", desc: "Power level rising under blazing sun!" },
-        rainy: { name: "Blue Aura Goku", symbol: "🌊", badge: "GOD KI AURA", desc: "Training intensely through the downpour!" },
-        thunder: { name: "Majin Vegeta", symbol: "💥", badge: "FINAL FLASH", desc: "Lightning strikes across the battlefield!" },
-        snowy: { name: "Gohan (Winter)", symbol: "🏔️", badge: "ROOM OF SPIRIT", desc: "Meditating calmly in freezing winds!" },
-        default: { name: "Goku", symbol: "🥋", badge: "DBZ SQUAD", desc: "Ready for battle!" }
+        sunny: { name: "Super Saiyan Goku", avatar: "💥", desc: "Power level rising under blazing sun!" },
+        rainy: { name: "Blue Aura Goku", avatar: "🌊", desc: "Training intensely through the downpour!" },
+        thunder: { name: "Majin Vegeta", avatar: "⚡", desc: "Lightning strikes across the battlefield!" },
+        snowy: { name: "Gohan (Winter)", avatar: "🏔️", desc: "Meditating calmly in freezing winds!" },
+        default: { name: "Goku", avatar: "🥋", desc: "Ready for battle!" }
     },
     naruto: {
-        sunny: { name: "Naruto (Sage Mode)", symbol: "☀️", badge: "SAGE ENERGY", desc: "Gathering natural energy in the sun!" },
-        rainy: { name: "Kakashi Hatake", symbol: "🌧️", badge: "ANBU SHINOBI", desc: "Mission underway in the misty rain." },
-        thunder: { name: "Sasuke (Kirin)", symbol: "⚡", badge: "LIGHTNING BLADE", desc: "Channeling lightning for Kirin!" },
-        snowy: { name: "Haku", symbol: "❄️", badge: "DEMONIC ICE", desc: "Ice mirrors freezing the snowfall." },
-        default: { name: "Naruto Uzumaki", symbol: "🍥", badge: "HIDDEN LEAF", desc: "Dattebayo!" }
+        sunny: { name: "Naruto (Sage Mode)", avatar: "☀️", desc: "Gathering natural energy in the sun!" },
+        rainy: { name: "Kakashi Hatake", avatar: "🌧️", desc: "Mission underway in the misty rain." },
+        thunder: { name: "Sasuke Uchiha", avatar: "⚡", desc: "Channeling lightning for Kirin!" },
+        snowy: { name: "Haku", avatar: "❄️", desc: "Ice mirrors freezing the snowfall." },
+        default: { name: "Naruto Uzumaki", avatar: "🍥", desc: "Dattebayo!" }
     },
     doraemon: {
-        sunny: { name: "Doraemon (Take-copter)", symbol: "🚁", badge: "SECRET GADGET", desc: "Flying high with the Take-copter!" },
-        rainy: { name: "Doraemon (Umbrella)", symbol: "☂️", badge: "FUTURE TOOL", desc: "Holding a futuristic rain umbrella!" },
-        thunder: { name: "Nobita & Gadgets", symbol: "🌩️", badge: "NOBITA'S ROOM", desc: "Hiding from the thunderstorm!" },
-        snowy: { name: "Doraemon (Anywhere Door)", symbol: "🚪", badge: "ANYWHERE DOOR", desc: "Stepping through snow into winter!" },
-        default: { name: "Doraemon", symbol: "🔔", badge: "FUTURE GADGET", desc: "Have a secret gadget ready!" }
+        sunny: { name: "Doraemon (Take-copter)", avatar: "🚁", desc: "Flying high with the Take-copter!" },
+        rainy: { name: "Doraemon (Umbrella)", avatar: "☂️", desc: "Holding a futuristic rain umbrella!" },
+        thunder: { name: "Nobita & Gadgets", avatar: "🌩️", desc: "Hiding from the thunderstorm!" },
+        snowy: { name: "Doraemon (Anywhere Door)", avatar: "🚪", desc: "Stepping through snow into winter!" },
+        default: { name: "Doraemon", avatar: "🔔", desc: "Have a secret gadget ready!" }
     }
 };
 
@@ -122,15 +122,14 @@ async function fetchWeather() {
                     <span class="city-name">${name}, ${country || ''}</span>
                     <span class="temp-val">${Math.round(current.temperature_2m)}°C</span>
                 </div>
-                <div class="weather-icon-container" style="text-align: center; margin: 8px 0;">
-                    <div style="font-size: 40px; margin-bottom: 2px;">${themeChar.symbol}</div>
-                    <div style="font-size: 8px; background: rgba(0,0,0,0.1); display: inline-block; padding: 3px 6px; border-radius: 4px; font-weight: bold; margin-bottom: 2px;">[ ${themeChar.badge} ]</div>
-                    <p class="condition-text" style="font-size: 10px; font-weight: bold;">${themeChar.name}</p>
+                <div class="weather-icon-container" style="text-align: center; margin: 10px 0;">
+                    <div style="font-size: 45px; margin-bottom: 5px;">${themeChar.avatar}</div>
+                    <p class="condition-text" style="font-size: 11px; font-weight: bold; text-transform: uppercase;">${themeChar.name}</p>
                 </div>
                 <div class="weather-lore" style="font-size: 8px; text-align:center; color:#222; margin-top:-2px;">
                     <em>"${themeChar.desc}"</em>
                 </div>
-                <div class="weather-details">
+                <div class="weather-details" style="margin-top: 5px;">
                     <div class="detail-item">
                         <span class="detail-label">HUMIDITY</span>
                         <span class="detail-value">${current.relative_humidity_2m}%</span>
@@ -144,6 +143,7 @@ async function fetchWeather() {
         `;
 
     } catch (err) {
+        weatherDisplay.keyword = '';
         weatherDisplay.innerHTML = `<div class="error-screen"><p>Connection Error! Check network.</p></div>`;
     }
 }
