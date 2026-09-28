@@ -28,37 +28,35 @@ function playRetroSound(theme) {
     } catch (e) {}
 }
 
-// --- COMPLETE CHARACTER DATABASE WITH PROXY BYPASS FOR IMAGES ---
+// --- FOOLPROOF STABLE ANIME DATABASE (No Broken Links) ---
 const characterDatabase = {
     pokemon: {
-        // PokeAPI works fine natively
-        sunny: { name: "Charizard", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png", fallback: "🐲", title: "KANTO FIRE DRAGON", desc: "A wild Charizard soaks up the sun!" },
-        rainy: { name: "Squirtle", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png", fallback: "🐢", title: "WATER POKÉMON", desc: "A wild Squirtle enjoys the heavy rain!" },
-        thunder: { name: "Pikachu", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", fallback: "⚡", title: "ELECTRIC MOUSE", desc: "Pikachu charges up in the thunderstorm!" },
-        snowy: { name: "Alolan Vulpix", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37-alola.png", fallback: "🦊", title: "SNOW FOX", desc: "Alolan Vulpix frolics in the snow!" },
-        default: { name: "Pikachu", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", fallback: "🔴", title: "POKÉ-DEX SCANNER", desc: "Scanning weather conditions..." }
+        sunny: { name: "Charizard", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png", title: "KANTO FIRE DRAGON", desc: "A wild Charizard soaks up the sun!" },
+        rainy: { name: "Squirtle", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png", title: "WATER POKÉMON", desc: "A wild Squirtle enjoys the heavy rain!" },
+        thunder: { name: "Pikachu", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", title: "ELECTRIC MOUSE", desc: "Pikachu charges up in the thunderstorm!" },
+        snowy: { name: "Alolan Vulpix", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37-alola.png", title: "SNOW FOX", desc: "Alolan Vulpix frolics in the snow!" },
+        default: { name: "Pikachu", img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", title: "POKÉ-DEX SCANNER", desc: "Scanning weather conditions..." }
     },
     dbz: {
-        // Using wsrv.nl proxy to bypass Wikipedia block
-        sunny: { name: "Super Saiyan Goku", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "💥", title: "SAIYAN WARRIOR", desc: "Power level rising under blazing sun!" },
-        rainy: { name: "Blue Aura Goku", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🌊", title: "SUPER SAIYAN BLUE", desc: "Training intensely through the downpour!" },
-        thunder: { name: "Majin Vegeta", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "⚡", title: "PRINCE OF SAIYANS", desc: "Lightning strikes across the battlefield!" },
-        snowy: { name: "Gohan (Winter)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🏔️", title: "HALF-SAIYAN KEEPER", desc: "Meditating calmly in freezing winds!" },
-        default: { name: "Goku", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", fallback: "🥋", title: "EARTH'S DEFENDER", desc: "Ready for battle!" }
+        sunny: { name: "Super Saiyan Goku", icon: "💥", title: "SUPER SAIYAN GOD", desc: "Power level rising under blazing sun!" },
+        rainy: { name: "Goku (Blue Aura)", icon: "🌊", title: "SSB INTENSE TRAINING", desc: "Training intensely through the downpour!" },
+        thunder: { name: "Majin Vegeta", icon: "⚡", title: "PRINCE OF SAIYANS", desc: "Lightning strikes across the battlefield!" },
+        snowy: { name: "Gohan (Winter)", icon: "🏔️", title: "ROOM OF SPIRIT", desc: "Meditating calmly in freezing winds!" },
+        default: { name: "Goku", icon: "🥋", title: "EARTH'S DEFENDER", desc: "Ready for battle!" }
     },
     naruto: {
-        sunny: { name: "Naruto (Sage Mode)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "☀️", title: "HOKAGE SAGE", desc: "Gathering natural energy in the sun!" },
-        rainy: { name: "Kakashi Hatake", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "🌧️", title: "COPY NINJA", desc: "Mission underway in the misty rain." },
-        thunder: { name: "Sasuke Uchiha", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "⚡", title: "AVENGING SHINOBI", desc: "Channeling lightning for Kirin!" },
-        snowy: { name: "Haku", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "❄️", title: "ICE MIRROR MASTER", desc: "Ice mirrors freezing the snowfall." },
-        default: { name: "Naruto Uzumaki", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", fallback: "🍥", title: "HIDDEN LEAF HERO", desc: "Dattebayo!" }
+        sunny: { name: "Naruto (Sage Mode)", icon: "☀️", title: "HOKAGE SAGE", desc: "Gathering natural energy in the sun!" },
+        rainy: { name: "Kakashi Hatake", icon: "🌧️", title: "ANBU SHINOBI", desc: "Mission underway in the misty rain." },
+        thunder: { name: "Sasuke (Kirin)", icon: "⚡", title: "LIGHTNING BLADE", desc: "Channeling lightning for Kirin!" },
+        snowy: { name: "Haku", icon: "❄️", title: "DEMONIC ICE MIRROR", desc: "Ice mirrors freezing the snowfall." },
+        default: { name: "Naruto Uzumaki", icon: "🍥", title: "HIDDEN LEAF HERO", desc: "Dattebayo!" }
     },
     doraemon: {
-        sunny: { name: "Doraemon (Take-copter)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🚁", title: "FUTURE CAT ROBOT", desc: "Flying high with the Take-copter!" },
-        rainy: { name: "Doraemon (Umbrella)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "☂️", title: "SECRET GADGET USER", desc: "Holding a futuristic rain umbrella!" },
-        thunder: { name: "Nobita & Gadgets", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🌩️", title: "NOBITA'S ROOM", desc: "Hiding from the thunderstorm!" },
-        snowy: { name: "Doraemon (Anywhere Door)", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🚪", title: "ANYWHERE DOOR", desc: "Stepping through snow into winter!" },
-        default: { name: "Doraemon", img: "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", fallback: "🔔", title: "FUTURE GADGETRY", desc: "Have a secret gadget ready!" }
+        sunny: { name: "Doraemon (Take-copter)", icon: "🚁", title: "FUTURE CAT ROBOT", desc: "Flying high with the Take-copter!" },
+        rainy: { name: "Doraemon (Umbrella)", icon: "☂️", title: "FUTURE GADGET USER", desc: "Holding a futuristic rain umbrella!" },
+        thunder: { name: "Nobita & Gadgets", icon: "🌩️", title: "NOBITA'S ROOM", desc: "Hiding from the thunderstorm!" },
+        snowy: { name: "Doraemon (Anywhere Door)", icon: "🚪", title: "ANYWHERE DOOR", desc: "Stepping through snow into winter!" },
+        default: { name: "Doraemon", icon: "🔔", title: "FUTURE GADGETRY", desc: "Have a secret gadget ready!" }
     }
 };
 
@@ -111,12 +109,24 @@ async function fetchWeather() {
         let conditionKey = 'default';
         let conditionText = 'Clear Skies';
 
-        if (code >= 1 && code <= 3) { conditionKey = 'sunny'; conditionText = 'Sunny / Clear'; }
-        else if (code >= 51 && code <= 67) { conditionKey = 'rainy'; conditionText = 'Rain Showers'; }
-        else if (code >= 95) { conditionKey = 'thunder'; conditionText = 'Thunderstorm'; }
+        // Precise weather condition code mapping
+        if (code === 0) { conditionKey = 'sunny'; conditionText = 'Clear Sky'; }
+        else if (code >= 1 && code <= 3) { conditionKey = 'sunny'; conditionText = 'Sunny / Cloudy'; }
+        else if (code >= 51 && code <= 55) { conditionKey = 'rainy'; conditionText = 'Light Drizzle'; }
+        else if (code >= 56 && code <= 65) { conditionKey = 'rainy'; conditionText = 'Heavy Rain Showers'; }
+        else if (code >= 66 && code <= 67) { conditionKey = 'rainy'; conditionText = 'Freezing Rain'; }
         else if (code >= 71 && code <= 77) { conditionKey = 'snowy'; conditionText = 'Snowfall'; }
+        else if (code >= 95) { conditionKey = 'thunder'; conditionText = 'Thunderstorm Active'; }
 
         const themeChar = characterDatabase[currentTheme][conditionKey] || characterDatabase[currentTheme].default;
+
+        // Render layout handling image vs stylized retro icons dynamically
+        let mediaHtml = '';
+        if (themeChar.img) {
+            mediaHtml = `<img src="${themeChar.img}" alt="${themeChar.name}" style="width: 45px; height: 45px; object-fit: contain;">`;
+        } else {
+            mediaHtml = `<span style="font-size: 32px;">${themeChar.icon}</span>`;
+        }
 
         weatherDisplay.innerHTML = `
             <div class="weather-result">
@@ -126,12 +136,10 @@ async function fetchWeather() {
                 </div>
                 
                 <div class="anime-character-card">
-                    <div class="anime-avatar-box">
-                        <img src="${themeChar.img}" alt="${themeChar.name}" style="width: 45px; height: 45px; object-fit: contain; image-rendering: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
-                        <span style="display:none; font-size: 30px;">${themeChar.fallback}</span>
-                    </div>
+                    <div class="anime-avatar-box">${mediaHtml}</div>
                     <div class="anime-name-tag">${themeChar.name}</div>
-                    <div style="font-size: 7px; color: #444; margin-top: 2px;">★ ${themeChar.title} ★</div>
+                    <div style="font-size: 8px; color: #b00; font-weight: bold; margin-top: 2px;">⚡ ${conditionText.toUpperCase()} ⚡</div>
+                    <div style="font-size: 7px; color: #444; margin-top: 1px;">★ ${themeChar.title} ★</div>
                 </div>
 
                 <div class="weather-lore" style="font-size: 8px; text-align:center; color:#222; margin-top:-2px;">
