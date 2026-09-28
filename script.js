@@ -28,7 +28,7 @@ function playRetroSound(theme) {
     } catch (e) {}
 }
 
-// --- ACCURATE THEME CHARACTER DATABASE (DBZ, Naruto, Doraemon & Pokemon) ---
+// --- ACCURATE THEME CHARACTER DATABASE WITH CUSTOM SPRITES ---
 const characterDatabase = {
     pokemon: {
         sunny: { name: "Charizard", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png", desc: "A wild Charizard soaks up the sun!" },
@@ -38,25 +38,25 @@ const characterDatabase = {
         default: { name: "Pikachu", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Scanning weather conditions..." }
     },
     dbz: {
-        sunny: { name: "Super Saiyan Goku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png", desc: "Power level rising under blazing sun!" },
-        rainy: { name: "Blue Aura Goku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png", desc: "Training intensely through the downpour!" },
-        thunder: { name: "Majin Vegeta", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png", desc: "Lightning strikes across the battlefield!" },
-        snowy: { name: "Gohan (Winter)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png", desc: "Meditating calmly in freezing winds!" },
-        default: { name: "Goku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/157.png", desc: "Ready for battle!" }
+        sunny: { name: "Super Saiyan Goku", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:fire.svg", desc: "Power level rising under blazing sun!" },
+        rainy: { name: "Blue Aura Goku", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:droplet.svg", desc: "Training intensely through the downpour!" },
+        thunder: { name: "Majin Vegeta", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:high-voltage.svg", desc: "Lightning strikes across the battlefield!" },
+        snowy: { name: "Gohan (Winter)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:snowflake.svg", desc: "Meditating calmly in freezing winds!" },
+        default: { name: "Goku", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:martial-arts-uniform.svg", desc: "Ready for battle!" }
     },
     naruto: {
-        sunny: { name: "Naruto (Sage Mode)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png", desc: "Gathering natural energy in the sun!" },
-        rainy: { name: "Kakashi (Anbu Rain)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png", desc: "Mission underway in the misty rain." },
-        thunder: { name: "Sasuke (Kirin)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png", desc: "Channeling lightning for Kirin!" },
-        snowy: { name: "Haku", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png", desc: "Ice mirrors freezing the snowfall." },
-        default: { name: "Naruto", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png", desc: "Dattebayo!" }
+        sunny: { name: "Naruto (Sage Mode)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:sun.svg", desc: "Gathering natural energy in the sun!" },
+        rainy: { name: "Kakashi (Anbu Rain)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:cloud-with-rain.svg", desc: "Mission underway in the misty rain." },
+        thunder: { name: "Sasuke (Kirin)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:high-voltage.svg", desc: "Channeling lightning for Kirin!" },
+        snowy: { name: "Haku", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:snowflake.svg", desc: "Ice mirrors freezing the snowfall." },
+        default: { name: "Naruto", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:swirl.svg", desc: "Dattebayo!" }
     },
     doraemon: {
-        sunny: { name: "Doraemon (Take-copter)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png", desc: "Flying high with the Take-copter!" },
-        rainy: { name: "Doraemon (Umbrella)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png", desc: "Holding a futuristic rain umbrella!" },
-        thunder: { name: "Nobita & Gadgets", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png", desc: "Hiding from the thunderstorm!" },
-        snowy: { name: "Doraemon (Anywhere Door)", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png", desc: "Stepping through snow into winter!" },
-        default: { name: "Doraemon", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png", desc: "Have a secret gadget ready!" }
+        sunny: { name: "Doraemon (Take-copter)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:helicopter.svg", desc: "Flying high with the Take-copter!" },
+        rainy: { name: "Doraemon (Umbrella)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:closed-umbrella.svg", desc: "Holding a futuristic rain umbrella!" },
+        thunder: { name: "Nobita & Gadgets", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:cloud-with-lightning-and-rain.svg", desc: "Hiding from the thunderstorm!" },
+        snowy: { name: "Doraemon (Anywhere Door)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:door.svg", desc: "Stepping through snow into winter!" },
+        default: { name: "Doraemon", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:bell.svg", desc: "Have a secret gadget ready!" }
     }
 };
 
