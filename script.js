@@ -9,16 +9,16 @@ function playRetroSound(theme) {
         gainNode.connect(audioCtx.destination);
 
         if (theme === 'dbz') {
-            osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // Saiyan tone
+            osc.frequency.setValueAtTime(587.33, audioCtx.currentTime);
             osc.type = 'sawtooth';
         } else if (theme === 'naruto') {
-            osc.frequency.setValueAtTime(440, audioCtx.currentTime); // Shinobi beep
+            osc.frequency.setValueAtTime(440, audioCtx.currentTime);
             osc.type = 'square';
         } else if (theme === 'doraemon') {
-            osc.frequency.setValueAtTime(659.25, audioCtx.currentTime); // Gadget chime
+            osc.frequency.setValueAtTime(659.25, audioCtx.currentTime);
             osc.type = 'sine';
         } else {
-            osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // Classic Poké
+            osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
             osc.type = 'square';
         }
 
@@ -28,35 +28,35 @@ function playRetroSound(theme) {
     } catch (e) {}
 }
 
-// --- ACCURATE THEME CHARACTER DATABASE WITH CUSTOM SPRITES ---
+// --- ICONIFY THEME CHARACTER DATABASE ---
 const characterDatabase = {
     pokemon: {
-        sunny: { name: "Charizard", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png", desc: "A wild Charizard soaks up the sun!" },
-        rainy: { name: "Squirtle", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png", desc: "A wild Squirtle enjoys the heavy rain!" },
-        thunder: { name: "Pikachu", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Pikachu charges up in the thunderstorm!" },
-        snowy: { name: "Alolan Vulpix", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37-alola.png", desc: "Alolan Vulpix frolics in the snow!" },
-        default: { name: "Pikachu", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Scanning weather conditions..." }
+        sunny: { name: "Charizard", icon: "fluent-emoji-flat:fire", desc: "A wild Charizard soaks up the sun!" },
+        rainy: { name: "Squirtle", icon: "fluent-emoji-flat:water-wave", desc: "A wild Squirtle enjoys the heavy rain!" },
+        thunder: { name: "Pikachu", icon: "fluent-emoji-flat:high-voltage", desc: "Pikachu charges up in the thunderstorm!" },
+        snowy: { name: "Alolan Vulpix", icon: "fluent-emoji-flat:snowflake", desc: "Alolan Vulpix frolics in the snow!" },
+        default: { name: "Pikachu", icon: "fluent-emoji-flat:video-game", desc: "Scanning weather conditions..." }
     },
     dbz: {
-        sunny: { name: "Super Saiyan Goku", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:fire.svg", desc: "Power level rising under blazing sun!" },
-        rainy: { name: "Blue Aura Goku", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:droplet.svg", desc: "Training intensely through the downpour!" },
-        thunder: { name: "Majin Vegeta", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:high-voltage.svg", desc: "Lightning strikes across the battlefield!" },
-        snowy: { name: "Gohan (Winter)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:snowflake.svg", desc: "Meditating calmly in freezing winds!" },
-        default: { name: "Goku", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:martial-arts-uniform.svg", desc: "Ready for battle!" }
+        sunny: { name: "Super Saiyan Goku", icon: "fluent-emoji-flat:glowing-star", desc: "Power level rising under blazing sun!" },
+        rainy: { name: "Blue Aura Goku", icon: "fluent-emoji-flat:droplet", desc: "Training intensely through the downpour!" },
+        thunder: { name: "Majin Vegeta", icon: "fluent-emoji-flat:collision", desc: "Lightning strikes across the battlefield!" },
+        snowy: { name: "Gohan (Winter)", icon: "fluent-emoji-flat:shaved-ice", desc: "Meditating calmly in freezing winds!" },
+        default: { name: "Goku", icon: "fluent-emoji-flat:martial-arts-uniform", desc: "Ready for battle!" }
     },
     naruto: {
-        sunny: { name: "Naruto (Sage Mode)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:sun.svg", desc: "Gathering natural energy in the sun!" },
-        rainy: { name: "Kakashi (Anbu Rain)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:cloud-with-rain.svg", desc: "Mission underway in the misty rain." },
-        thunder: { name: "Sasuke (Kirin)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:high-voltage.svg", desc: "Channeling lightning for Kirin!" },
-        snowy: { name: "Haku", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:snowflake.svg", desc: "Ice mirrors freezing the snowfall." },
-        default: { name: "Naruto", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:swirl.svg", desc: "Dattebayo!" }
+        sunny: { name: "Naruto (Sage Mode)", icon: "fluent-emoji-flat:sun-with-face", desc: "Gathering natural energy in the sun!" },
+        rainy: { name: "Kakashi (Anbu Rain)", icon: "fluent-emoji-flat:cloud-with-rain", desc: "Mission underway in the misty rain." },
+        thunder: { name: "Sasuke (Kirin)", icon: "fluent-emoji-flat:zap", desc: "Channeling lightning for Kirin!" },
+        snowy: { name: "Haku", icon: "fluent-emoji-flat:snowflake", desc: "Ice mirrors freezing the snowfall." },
+        default: { name: "Naruto", icon: "fluent-emoji-flat:swirl", desc: "Dattebayo!" }
     },
     doraemon: {
-        sunny: { name: "Doraemon (Take-copter)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:helicopter.svg", desc: "Flying high with the Take-copter!" },
-        rainy: { name: "Doraemon (Umbrella)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:closed-umbrella.svg", desc: "Holding a futuristic rain umbrella!" },
-        thunder: { name: "Nobita & Gadgets", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:cloud-with-lightning-and-rain.svg", desc: "Hiding from the thunderstorm!" },
-        snowy: { name: "Doraemon (Anywhere Door)", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:door.svg", desc: "Stepping through snow into winter!" },
-        default: { name: "Doraemon", sprite: "https://api.iconify.iconify.design/fluent-emoji-flat:bell.svg", desc: "Have a secret gadget ready!" }
+        sunny: { name: "Doraemon (Take-copter)", icon: "fluent-emoji-flat:helicopter", desc: "Flying high with the Take-copter!" },
+        rainy: { name: "Doraemon (Umbrella)", icon: "fluent-emoji-flat:closed-umbrella", desc: "Holding a futuristic rain umbrella!" },
+        thunder: { name: "Nobita & Gadgets", icon: "fluent-emoji-flat:cloud-with-lightning-and-rain", desc: "Hiding from the thunderstorm!" },
+        snowy: { name: "Doraemon (Anywhere Door)", icon: "fluent-emoji-flat:door", desc: "Stepping through snow into winter!" },
+        default: { name: "Doraemon", icon: "fluent-emoji-flat:bell", desc: "Have a secret gadget ready!" }
     }
 };
 
@@ -123,10 +123,10 @@ async function fetchWeather() {
                     <span class="temp-val">${Math.round(current.temperature_2m)}°C</span>
                 </div>
                 <div class="weather-icon-container">
-                    <img src="${themeChar.sprite}" alt="${themeChar.name}">
-                    <p class="condition-text">${conditionText}</p>
+                    <span class="iconify" data-icon="${themeChar.icon}" style="font-size: 50px;"></span>
+                    <p class="condition-text">${themeChar.name}</p>
                 </div>
-                <div class="weather-lore" style="font-size: 8px; text-align:center; color:#222; margin-top:-5px;">
+                <div class="weather-lore" style="font-size: 8px; text-align:center; color:#222; margin-top:-3px;">
                     <em>"${themeChar.desc}"</em>
                 </div>
                 <div class="weather-details">

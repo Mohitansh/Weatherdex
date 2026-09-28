@@ -17,27 +17,27 @@ body.theme-pokemon {
 }
 
 body.theme-dbz {
-    --shell-primary: #F37022; /* Saiyan Orange */
+    --shell-primary: #F37022;
     --shell-dark: #B94406;
-    --screen-bg: #4A90E2; /* Energy Blue */
-    --accent-btn: #002B49; /* Dark Blue for high contrast */
-    --btn-text: #FFD700;   /* Golden text */
+    --screen-bg: #4A90E2;
+    --accent-btn: #002B49;
+    --btn-text: #FFD700;
 }
 
 body.theme-naruto {
-    --shell-primary: #FF6600; /* Konoha Orange */
+    --shell-primary: #FF6600;
     --shell-dark: #C04400;
-    --screen-bg: #85B951; /* Leaf Green */
-    --accent-btn: #111111; /* Black button */
-    --btn-text: #FF6600;   /* Orange text */
+    --screen-bg: #85B951;
+    --accent-btn: #111111;
+    --btn-text: #FF6600;
 }
 
 body.theme-doraemon {
-    --shell-primary: #0085C7; /* Dora Blue */
+    --shell-primary: #0085C7;
     --shell-dark: #005A8C;
-    --screen-bg: #E0F7FA; /* Future Bright Screen */
-    --accent-btn: #D32F2F; /* Red Collar Bell vibe */
-    --btn-text: #FFFFFF;   /* White text */
+    --screen-bg: #E0F7FA;
+    --accent-btn: #D32F2F;
+    --btn-text: #FFFFFF;
 }
 
 * {
@@ -116,7 +116,7 @@ body {
 .hinge-top { top: 80px; }
 .hinge-bottom { bottom: 80px; }
 
-/* Screen Container with CRT Scanline Effect */
+/* Screen Container with CRT Scanlines Effect */
 .screen-container {
     background-color: #fff;
     border: 8px solid var(--screen-border);
@@ -293,14 +293,15 @@ button#search-btn:active {
     font-size: 13px;
     font-weight: bold;
 }
-.weather-icon-container img {
-    width: 75px;
-    image-rendering: pixelated;
+.weather-icon-container {
+    text-align: center;
+    margin: 2px 0;
 }
 .condition-text {
     font-size: 9px;
-    margin-top: -5px;
+    margin-top: 3px;
     text-transform: uppercase;
+    font-weight: bold;
 }
 .weather-details {
     display: flex;
@@ -337,6 +338,6 @@ button#search-btn:active {
         margin-bottom: 0;
     }
     .hinge-top, .hinge-bottom {
-        data-display: none;
+        display: none;
     }
 }

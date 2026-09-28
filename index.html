@@ -9,14 +9,15 @@
     <meta name="theme-color" content="#DC0A2D">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="logo.png">
-    <link rel="icon" href="logo.png" type="image/png">
+    
+    <!-- Iconify Script for Universal Theme Icons -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-pokemon"> <!-- Default Theme -->
+<body class="theme-pokemon">
 
-    <!-- Theme Selector Dropdown Bar -->
+    <!-- Theme Selector Bar -->
     <div class="theme-selector-bar">
         <label for="theme-select">UNIVERSE:</label>
         <select id="theme-select">
@@ -33,7 +34,7 @@
             <div class="hinge-top"></div>
             <div class="hinge-bottom"></div>
             
-            <!-- The Main Screen with CRT Scanlines Overlay -->
+            <!-- Main Screen with CRT Scanlines Overlay -->
             <div class="screen-container">
                 <div class="crt-overlay"></div>
                 <div class="screen-header">
@@ -41,7 +42,6 @@
                     <span class="red-light"></span>
                 </div>
                 <div class="screen-content" id="weather-display">
-                    <!-- Default state -->
                     <div class="intro-screen">
                         <div class="pokeball-icon">🔴</div>
                         <p>Enter a city to scan multi-verse weather data!</p>
@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <!-- Right Side -->
+        <!-- Right Side Shell -->
         <div class="pokedex-right">
             <div class="data-pads">
                 <div class="pad"></div>
@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <!-- Clean Non-Intrusive Footer -->
+    <!-- Clean Footer (Never Overlaps) -->
     <footer class="app-footer">
         <p>Built for multi-verse explorers by <strong>Ansh Raghav</strong> (Moradabad)</p>
         <p style="margin-top: 2px;">&copy; 2026 Mohitansh. All Rights Reserved.</p>
