@@ -28,35 +28,35 @@ function playRetroSound(theme) {
     } catch (e) {}
 }
 
-// --- ICONIFY THEME CHARACTER DATABASE ---
+// --- REAL ANIME & CARTOON CHARACTER DATABASE ---
 const characterDatabase = {
     pokemon: {
-        sunny: { name: "Charizard", icon: "fluent-emoji-flat:fire", desc: "A wild Charizard soaks up the sun!" },
-        rainy: { name: "Squirtle", icon: "fluent-emoji-flat:water-wave", desc: "A wild Squirtle enjoys the heavy rain!" },
-        thunder: { name: "Pikachu", icon: "fluent-emoji-flat:high-voltage", desc: "Pikachu charges up in the thunderstorm!" },
-        snowy: { name: "Alolan Vulpix", icon: "fluent-emoji-flat:snowflake", desc: "Alolan Vulpix frolics in the snow!" },
-        default: { name: "Pikachu", icon: "fluent-emoji-flat:video-game", desc: "Scanning weather conditions..." }
+        sunny: { name: "Charizard", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png", desc: "A wild Charizard soaks up the sun!" },
+        rainy: { name: "Squirtle", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png", desc: "A wild Squirtle enjoys the heavy rain!" },
+        thunder: { name: "Pikachu", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Pikachu charges up in the thunderstorm!" },
+        snowy: { name: "Alolan Vulpix", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37-alola.png", desc: "Alolan Vulpix frolics in the snow!" },
+        default: { name: "Pikachu", sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", desc: "Scanning weather conditions..." }
     },
     dbz: {
-        sunny: { name: "Super Saiyan Goku", icon: "fluent-emoji-flat:glowing-star", desc: "Power level rising under blazing sun!" },
-        rainy: { name: "Blue Aura Goku", icon: "fluent-emoji-flat:droplet", desc: "Training intensely through the downpour!" },
-        thunder: { name: "Majin Vegeta", icon: "fluent-emoji-flat:collision", desc: "Lightning strikes across the battlefield!" },
-        snowy: { name: "Gohan (Winter)", icon: "fluent-emoji-flat:shaved-ice", desc: "Meditating calmly in freezing winds!" },
-        default: { name: "Goku", icon: "fluent-emoji-flat:martial-arts-uniform", desc: "Ready for battle!" }
+        sunny: { name: "Super Saiyan Goku", sprite: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", desc: "Power level rising under blazing sun!" },
+        rainy: { name: "Goku (Blue Aura)", sprite: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", desc: "Training intensely through the downpour!" },
+        thunder: { name: "Majin Vegeta", sprite: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", desc: "Lightning strikes across the battlefield!" },
+        snowy: { name: "Gohan (Winter)", sprite: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", desc: "Meditating calmly in freezing winds!" },
+        default: { name: "Goku", sprite: "https://upload.wikimedia.org/wikipedia/en/2/2e/Goku_Dragon_Ball.png", desc: "Ready for battle!" }
     },
     naruto: {
-        sunny: { name: "Naruto (Sage Mode)", icon: "fluent-emoji-flat:sun-with-face", desc: "Gathering natural energy in the sun!" },
-        rainy: { name: "Kakashi (Anbu Rain)", icon: "fluent-emoji-flat:cloud-with-rain", desc: "Mission underway in the misty rain." },
-        thunder: { name: "Sasuke (Kirin)", icon: "fluent-emoji-flat:zap", desc: "Channeling lightning for Kirin!" },
-        snowy: { name: "Haku", icon: "fluent-emoji-flat:snowflake", desc: "Ice mirrors freezing the snowfall." },
-        default: { name: "Naruto", icon: "fluent-emoji-flat:swirl", desc: "Dattebayo!" }
+        sunny: { name: "Naruto (Sage Mode)", sprite: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", desc: "Gathering natural energy in the sun!" },
+        rainy: { name: "Kakashi Hatake", sprite: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", desc: "Mission underway in the misty rain." },
+        thunder: { name: "Sasuke Uchiha", sprite: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", desc: "Channeling lightning for Kirin!" },
+        snowy: { name: "Haku", sprite: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", desc: "Ice mirrors freezing the snowfall." },
+        default: { name: "Naruto Uzumaki", sprite: "https://upload.wikimedia.org/wikipedia/en/9/94/Naruto_cover_vol_1.jpg", desc: "Dattebayo!" }
     },
     doraemon: {
-        sunny: { name: "Doraemon (Take-copter)", icon: "fluent-emoji-flat:helicopter", desc: "Flying high with the Take-copter!" },
-        rainy: { name: "Doraemon (Umbrella)", icon: "fluent-emoji-flat:closed-umbrella", desc: "Holding a futuristic rain umbrella!" },
-        thunder: { name: "Nobita & Gadgets", icon: "fluent-emoji-flat:cloud-with-lightning-and-rain", desc: "Hiding from the thunderstorm!" },
-        snowy: { name: "Doraemon (Anywhere Door)", icon: "fluent-emoji-flat:door", desc: "Stepping through snow into winter!" },
-        default: { name: "Doraemon", icon: "fluent-emoji-flat:bell", desc: "Have a secret gadget ready!" }
+        sunny: { name: "Doraemon (Take-copter)", sprite: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", desc: "Flying high with the Take-copter!" },
+        rainy: { name: "Doraemon (Umbrella)", sprite: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", desc: "Holding a futuristic rain umbrella!" },
+        thunder: { name: "Nobita Nobi", sprite: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", desc: "Hiding from the thunderstorm!" },
+        snowy: { name: "Doraemon (Anywhere Door)", sprite: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", desc: "Stepping through snow into winter!" },
+        default: { name: "Doraemon", sprite: "https://upload.wikimedia.org/wikipedia/en/c/c9/Doraemon_character.png", desc: "Have a secret gadget ready!" }
     }
 };
 
@@ -123,7 +123,7 @@ async function fetchWeather() {
                     <span class="temp-val">${Math.round(current.temperature_2m)}°C</span>
                 </div>
                 <div class="weather-icon-container">
-                    <span class="iconify" data-icon="${themeChar.icon}" style="font-size: 50px;"></span>
+                    <img src="${themeChar.sprite}" alt="${themeChar.name}">
                     <p class="condition-text">${themeChar.name}</p>
                 </div>
                 <div class="weather-lore" style="font-size: 8px; text-align:center; color:#222; margin-top:-3px;">
